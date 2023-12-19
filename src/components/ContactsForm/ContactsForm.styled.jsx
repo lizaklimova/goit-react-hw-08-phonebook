@@ -1,12 +1,30 @@
 import styled from "styled-components";
+import { IoPerson } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
+
+export const PersonNameIcon = styled(IoPerson)`
+  position: absolute;
+  left: 0;
+  bottom: 35%;
+  width: 20px;
+  height: 20px;
+`;
+export const PersonTelIcon = styled(FaPhoneAlt)`
+  position: absolute;
+  left: 0;
+  bottom: 35%;
+  width: 20px;
+  height: 20px;
+`;
 
 export const ContactsFormEl = styled.form`
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: 10px;
+  gap: 25px;
   letter-spacing: 0.08px;
   width: 100%;
+  color: #fff;
 
   @media screen and (min-width: 768px) {
     width: 100%;
@@ -14,31 +32,42 @@ export const ContactsFormEl = styled.form`
 `;
 
 export const ContactsNameInput = styled.input`
+  font-size: 20px;
+  width: 100%;
   padding: 10px;
-  border-radius: 20px;
-  border: 2px solid #000000;
+  padding-left: 35px;
+  border: none;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  background-color: transparent;
+
+  &::placeholder {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.372);
+  }
 
   &:focus {
     outline: none;
-    border-color: #2eb56b;
   }
 `;
 
-export const Label = styled.label`
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: 0.07px;
-`;
-
 export const ContactsNumberInput = styled.input`
+  font-size: 20px;
+  width: 100%;
   padding: 10px;
-  border-radius: 20px;
-  border: 2px solid #000000;
+  padding-left: 35px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  background-color: transparent;
+
+  &::placeholder {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.372);
+  }
 
   &:focus {
     outline: none;
-    border: 2px solid #2eb56b;
   }
 `;
 
@@ -53,22 +82,23 @@ export const SubmitBtn = styled.button`
   width: 55%;
   padding: 10px;
   margin-top: 21px;
-  color: white;
-  background: linear-gradient(
-    0deg,
-    rgba(20, 167, 62, 1) 0%,
-    rgba(102, 247, 113, 1) 100%
-  );
+  color: #000;
+  background-color: #fff;
   border: none;
-  box-shadow: 0 9px 25px 1px #14a73e98;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
   letter-spacing: 0.8px;
   border-radius: 30px;
   cursor: pointer;
-  transition: box-shadow 300ms linear;
+  transition: color 300ms linear, background-color 300ms linear,
+    outline 300ms linear, filter 300ms linear;
 
   &:hover,
   &:active {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    outline: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    filter: drop-shadow(1px 1px 1px #eefeaf);
   }
 `;

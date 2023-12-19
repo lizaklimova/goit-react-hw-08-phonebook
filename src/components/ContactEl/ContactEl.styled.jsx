@@ -69,10 +69,10 @@ export const ContactDeleteBtn = styled.button`
   border: none;
   border-radius: 50%;
   outline: none;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   color: #fff;
-  background-color: #080808;
+  background-color: transparent;
   cursor: pointer;
   transition: transform ease 0.1s;
 
@@ -84,6 +84,7 @@ export const ContactDeleteBtn = styled.button`
 export const DeleteIcon = styled(RiDeleteBinLine)`
   width: 100%;
   height: 100%;
+  fill: #000;
 `;
 
 export const NoContactsFoundMsg = styled.p`

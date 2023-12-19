@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { info } from "notifications/notiflixInit";
 import { addContact } from "../../redux/contacts/operations";
@@ -7,7 +6,8 @@ import { selectContacts } from "../../redux/contacts/selectors";
 import {
   ContactsFormEl,
   ContactsNameInput,
-  Label,
+  PersonNameIcon,
+  PersonTelIcon,
   ContactsNumberInput,
   SubmitBtn,
 } from "./ContactsForm.styled";
@@ -16,9 +16,6 @@ export default function ContactsForm({ closeModal }) {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
-
-  const idName = nanoid();
-  const idNumber = nanoid();
 
   useEffect(() => {
     const onEscClose = (e) => {
@@ -52,25 +49,28 @@ export default function ContactsForm({ closeModal }) {
   return (
     <>
       <ContactsFormEl autoComplete="off" onSubmit={onSubmit}>
-        <Label htmlFor={idName}>Name</Label>
-        <ContactsNameInput
-          id={idName}
-          type="text"
-          name="name"
-          placeholder="Full name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          required
-        />
-        <Label htmlFor={idNumber}>Phone</Label>
-        <ContactsNumberInput
-          id={idNumber}
-          type="tel"
-          name="number"
-          placeholder="123-45-67"
-          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          title="Please, enter valid format of number. Ex: (123-45-67)"
-          required
-        />
+        <div style={{ position: "relative" }}>
+          <ContactsNameInput
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            required
+          />
+          <PersonNameIcon />
+        </div>
+
+        <div style={{ position: "relative" }}>
+          <ContactsNumberInput
+            type="tel"
+            name="number"
+            placeholder="123-456-78"
+            pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+            title="Please, enter valid format of number. Ex: (123-45-67)"
+            required
+          />
+          <PersonTelIcon />
+        </div>
         <SubmitBtn type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"

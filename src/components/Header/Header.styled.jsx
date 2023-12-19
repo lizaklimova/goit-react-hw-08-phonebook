@@ -1,17 +1,6 @@
-import styled, { keyframes } from "styled-components";
-import { IoMdAdd } from "react-icons/io";
-
-const addContactAnimation = keyframes`
-  0% {
-    transform: scale(0.7);
-     filter: drop-shadow(-1px 3px 4px #4e4d4d);
-  }
-    100% {
-    transform: scale(1.1);
-     filter: drop-shadow(-1px 3px 10px #000000);
-  }
-`;
-
+import styled from "styled-components";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { IoMdPersonAdd } from "react-icons/io";
 export const HeaderPart = styled.div`
   width: 100%;
   height: 130px;
@@ -43,6 +32,12 @@ export const NavWrapper = styled.div`
   width: 100%;
 `;
 
+export const BackIcon = styled(IoIosArrowRoundBack)`
+  width: 50px;
+  height: 50px;
+  cursor: not-allowed;
+`;
+
 export const Title = styled.h1`
   text-align: center;
   font-size: 25px;
@@ -54,16 +49,16 @@ export const AddBtn = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
-  animation: ${addContactAnimation} 3s linear 1s infinite;
 
+  &:hover,
   &:focus {
+    filter: drop-shadow(10px 30px 50px #373030);
     outline: none;
   }
 `;
 
-export const AddIcon = styled(IoMdAdd)`
-  width: 50px;
-  height: 50px;
+export const AddIcon = styled(IoMdPersonAdd)`
+  width: 40px;
+  height: 40px;
   fill: black;
 `;

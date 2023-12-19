@@ -1,9 +1,10 @@
 import statusBarImg from "../../img/status-bar.png";
-import { IoIosArrowRoundBack } from "react-icons/io";
+
 import {
   HeaderPart,
   StatusBar,
   NavWrapper,
+  BackIcon,
   Title,
   AddBtn,
   AddIcon,
@@ -14,7 +15,7 @@ const Header = ({ openModal }) => {
     <HeaderPart>
       <StatusBar $bar={statusBarImg}></StatusBar>
       <NavWrapper>
-        <IoIosArrowRoundBack size={50} />
+        <BackIcon />
         <Title>My Contacts</Title>
         <AddBtn type="button" onClick={openModal}>
           <AddIcon />

@@ -10,7 +10,7 @@ export const ContactsUl = styled.ul`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #2eb56b;
+    background-color: #000000;
     border-radius: 6px;
   }
 
@@ -23,7 +23,7 @@ export const ContactsUl = styled.ul`
   }
 
   &::-moz-scrollbar-thumb {
-    background-color: #2eb56b;
+    background-color: #000000;
     border-radius: 6px;
   }
 
@@ -36,7 +36,7 @@ export const ContactsUl = styled.ul`
   }
 
   &::-ms-scrollbar-thumb {
-    background-color: #2eb56b;
+    background-color: #000000;
     border-radius: 6px;
   }
 
