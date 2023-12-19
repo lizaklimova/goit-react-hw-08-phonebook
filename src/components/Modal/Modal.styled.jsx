@@ -22,7 +22,7 @@ export const ModalBackdrop = styled.div`
 
 export const ModalWin = styled.div`
   position: relative;
-  background-color: rgba(13, 13, 13, 0.7);
+  background-color: rgba(13, 13, 13, 0.8);
   padding: 45px;
   width: 100%;
   border-radius: 15px;

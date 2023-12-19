@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineSearchOff } from "react-icons/md";
 import { fetchContacts } from "../../redux/contacts/operations";
+import { getTime } from "helpers/getTime";
 import ContactsList from "components/ContactsList";
 import {
   selectContacts,
@@ -32,6 +33,8 @@ export default function App() {
   const openModal = () => {
     setIsModalOpen(true);
   };
+
+  getTime();
 
   return (
     <>

@@ -40,6 +40,7 @@ export const ContactsNameInput = styled.input`
   color: #fff;
   border-bottom: 2px solid #fff;
   background-color: transparent;
+  border-radius: 0;
 
   &::placeholder {
     font-size: 16px;
@@ -58,6 +59,7 @@ export const ContactsNumberInput = styled.input`
   padding-left: 35px;
   border: none;
   border-bottom: 2px solid #fff;
+  border-radius: 0;
   color: #fff;
   background-color: transparent;
 
@@ -95,8 +97,9 @@ export const SubmitBtn = styled.button`
     outline 300ms linear, filter 300ms linear;
 
   &:hover,
-  &:active {
+  &:focus {
     outline: 1px solid #fff;
+    border-radius: 30px;
     color: #fff;
     background-color: transparent;
     filter: drop-shadow(1px 1px 1px #eefeaf);
