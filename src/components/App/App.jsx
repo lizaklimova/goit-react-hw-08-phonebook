@@ -1,59 +1,21 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { MdOutlineSearchOff } from "react-icons/md";
-import { fetchContacts } from "../../redux/contacts/operations";
-import { getTime } from "helpers/getTime";
-import ContactsList from "components/ContactsList";
-import {
-  selectContacts,
-  selectIsLoading,
-} from "../../redux/contacts/selectors.js";
-import Loader from "components/Loader";
-import Header from "components/Header";
-import Modal from "components/Modal";
-import FilterSearch from "components/FilterSearch";
-import { Container, Wrapper, NoContactsMsg } from "./App.styled";
+import { Routes, Route } from "react-router-dom";
+import Navigation from "components/Navigation";
+import { lazy } from "react";
+
+const RegisterPage = lazy(() => import("pages/Register"));
+const LoginPage = lazy(() => import("pages/Login"));
+const ContactsPage = lazy(() => import("pages/Contacts"));
 
 export default function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  getTime();
-
   return (
-    <>
-      {isModalOpen && <Modal closeModal={closeModal} isOpen={isModalOpen} />}
-      <Container>
-        <Wrapper>
-          <Header openModal={openModal} />
-          <FilterSearch />
-          {isLoading ? (
-            <Loader />
-          ) : contacts && contacts.length > 0 ? (
-            <ContactsList />
-          ) : (
-            <NoContactsMsg>
-              No contacts added yet <MdOutlineSearchOff size={30} />
-            </NoContactsMsg>
-          )}
-        </Wrapper>
-      </Container>
-    </>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+
+        <Route path="*" />
+      </Route>
+    </Routes>
   );
 }
