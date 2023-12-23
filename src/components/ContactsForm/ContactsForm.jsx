@@ -36,7 +36,7 @@ export default function ContactsForm({ closeModal }) {
 
     checkExistingContact(number.value)
       ? info(`Number ${number.value} already exists`)
-      : dispatch(addContact({ name: name.value, phone: number.value }));
+      : dispatch(addContact({ name: name.value, number: number.value }));
 
     closeModal();
     e.currentTarget.reset();
@@ -54,7 +54,6 @@ export default function ContactsForm({ closeModal }) {
             type="text"
             name="name"
             placeholder="Full Name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             required
           />
           <PersonNameIcon />
@@ -65,7 +64,6 @@ export default function ContactsForm({ closeModal }) {
             type="tel"
             name="number"
             placeholder="123-456-78"
-            pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
             title="Please, enter valid format of number. Ex: (123-45-67)"
             required
           />

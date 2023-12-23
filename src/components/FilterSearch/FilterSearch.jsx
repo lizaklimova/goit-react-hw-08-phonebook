@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { filterSearch } from "../../redux/filterSearch/filterSearchSlice";
+import { filterSearch } from "../../redux/filterSearch/slice";
 import {
   SearchContainer,
   FilterAndIconWrap,
@@ -19,13 +19,13 @@ export default function FilterSearch() {
   return (
     <SearchContainer>
       <FilterAndIconWrap>
+        <SearchIcon />
         <SearchInput
           id="searchInput"
           type="text"
           onChange={handleFilterSearch}
           placeholder="Enter name"
         />
-        <SearchIcon />
       </FilterAndIconWrap>
     </SearchContainer>
   );

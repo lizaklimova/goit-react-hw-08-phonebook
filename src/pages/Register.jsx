@@ -1,4 +1,11 @@
-const RegisterPage = () => {
-  return <div>Register</div>;
+import RegisterForm from "components/RegisterForm/";
+import { MainContainer } from "components/App/App.styled";
+
+const Register = () => {
+  return (
+    <MainContainer>
+      <RegisterForm />
+    </MainContainer>
+  );
 };
-export default RegisterPage;
+export default Register;

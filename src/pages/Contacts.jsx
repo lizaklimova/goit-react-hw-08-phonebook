@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineSearchOff } from "react-icons/md";
 import { fetchContacts } from "../redux/contacts/operations";
-import { getTime } from "helpers/getTime";
 import ContactsList from "components/ContactsList";
 import { selectContacts, selectIsLoading } from "../redux/contacts/selectors";
 import Loader from "components/Loader";
-import Header from "components/Header";
+import Bar from "components/Bar";
 import Modal from "components/Modal";
-import FilterSearch from "components/FilterSearch";
-import { Container, Wrapper, NoContactsMsg } from "components/App/App.styled";
+import { MainContainer, NoContactsMsg } from "components/App/App.styled";
 
 const Contacts = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,26 +29,22 @@ const Contacts = () => {
     setIsModalOpen(true);
   };
 
-  getTime();
-
   return (
     <>
       {isModalOpen && <Modal closeModal={closeModal} isOpen={isModalOpen} />}
-      <Container>
-        <Wrapper>
-          <Header openModal={openModal} />
-          <FilterSearch />
-          {isLoading ? (
-            <Loader />
-          ) : contacts && contacts.length > 0 ? (
-            <ContactsList />
-          ) : (
-            <NoContactsMsg>
-              No contacts added yet <MdOutlineSearchOff size={30} />
-            </NoContactsMsg>
-          )}
-        </Wrapper>
-      </Container>
+      <MainContainer>
+        <Bar openModal={openModal} />
+
+        {isLoading ? (
+          <Loader />
+        ) : contacts && contacts.length > 0 ? (
+          <ContactsList />
+        ) : (
+          <NoContactsMsg>
+            No contacts added yet <MdOutlineSearchOff size={30} />
+          </NoContactsMsg>
+        )}
+      </MainContainer>
     </>
   );
 };

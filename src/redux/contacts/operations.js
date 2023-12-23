@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { error } from "notifications/notiflixInit";
 
-axios.defaults.baseURL = "https://657d8eff3e3f5b189462bb67.mockapi.io/api";
+// axios.defaults.baseURL = "https://connections-api.herokuapp.com/";
 
 const notifyError = (message) => {
   error(message);
@@ -17,7 +17,7 @@ export const fetchContacts = createAsyncThunk(
       return data;
     } catch ({ message }) {
       notifyError(message);
-      thunkAPI.rejectWithValue(message);
+      return thunkAPI.rejectWithValue(message);
     }
   }
 );
@@ -26,16 +26,12 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (newContact, thunkAPI) => {
     try {
-      const { data } = await axios.post("/contacts", newContact, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const { data } = await axios.post("/contacts", newContact);
 
       return data;
     } catch ({ message }) {
       notifyError(message);
-      thunkAPI.rejectWithValue(message);
+      return thunkAPI.rejectWithValue(message);
     }
   }
 );
@@ -49,7 +45,21 @@ export const deleteContact = createAsyncThunk(
       return data;
     } catch ({ message }) {
       notifyError(message);
-      thunkAPI.rejectWithValue(message);
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+export const editContact = createAsyncThunk(
+  "contacts/editContacts",
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`/contacts/${id}`);
+
+      return data;
+    } catch ({ message }) {
+      notifyError(message);
+      return thunkAPI.rejectWithValue(message);
     }
   }
 );

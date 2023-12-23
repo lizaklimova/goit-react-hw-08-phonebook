@@ -6,13 +6,13 @@ const LoaderDots = () => {
       height="80"
       width="80"
       radius="9"
-      color="#000000"
+      color="#ffffff"
       ariaLabel="three-dots-loading"
       wrapperStyle={{
         position: "absolute",
-        top: "25%",
+        top: "50%",
         left: "50%",
-        transform: "translateX(-50%)",
+        transform: "translate(-50%, -50%)",
       }}
       visible={true}
     />

@@ -4,9 +4,9 @@ import { IoSearchOutline } from "react-icons/io5";
 export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   align-items: center;
-  margin-bottom: 26px;
 `;
 
 export const FilterAndIconWrap = styled.div`
@@ -16,14 +16,16 @@ export const FilterAndIconWrap = styled.div`
 export const SearchIcon = styled(IoSearchOutline)`
   position: absolute;
   top: 50%;
-  right: 10px;
+  left: 20px;
   transform: translate(-50%, -50%);
 `;
 
 export const SearchInput = styled.input`
-  padding: 10px 12px 10px 12px;
+  padding: 10px 12px 10px 35px;
   border-radius: 15px;
-  background-color: #efefef;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.accentBlue};
+
   border: none;
   width: 235px;
 
@@ -32,11 +34,13 @@ export const SearchInput = styled.input`
   }
 
   &::placeholder {
-    color: #8a8a8d;
-    font-size: 16px;
+    color: ${({ theme }) => theme.colors.white};
+    opacity: 0.7;
+    font-size: ${({ theme }) => theme.fontSizes.small};
     line-height: 1;
     letter-spacing: -0.408px;
   }
+
   @media screen and (min-width: 768px) {
     width: 335px;
   }

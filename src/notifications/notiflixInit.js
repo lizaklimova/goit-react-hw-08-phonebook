@@ -3,11 +3,12 @@ import { Notify } from "notiflix";
 const info = (message) => {
   Notify.init({
     backOverlay: true,
+    timeout: 5000,
     info: {
       notiflixIconColor: "#fff",
-      background: "#000",
+      background: "#2230cb",
       textColor: "#fff",
-      backOverlayColor: "rgba(198, 191, 191, 0.568)",
+      backOverlayColor: "rgba(0, 0, 0, 0.319)",
     },
   });
 
@@ -17,6 +18,7 @@ const info = (message) => {
 const error = (message) => {
   Notify.init({
     backOverlay: true,
+    timeout: 5000,
     error: {
       notiflixIconColor: "#fff",
       background: "#DC143C",
