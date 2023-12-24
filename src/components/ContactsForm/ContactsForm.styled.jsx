@@ -29,11 +29,11 @@ export const ContactsFormEl = styled.form`
 `;
 
 export const ContactsNameInput = styled.input`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.fontSizes.large};
   width: 100%;
+  border: none;
   padding: 10px;
   padding-left: 35px;
-  border: none;
   color: ${({ theme }) => theme.colors.white};
   border-bottom: ${({ theme }) => `2px solid ${theme.colors.white}`};
   background-color: transparent;
@@ -53,11 +53,11 @@ export const ContactsNameInput = styled.input`
 export const ContactsNumberInput = styled.input`
   font-size: ${({ theme }) => theme.fontSizes.large};
   width: 100%;
-  padding: 10px;
-  padding-left: 35px;
   border: none;
   border-bottom: ${({ theme }) => `2px solid ${theme.colors.white}`};
   border-radius: 0;
+  padding: 10px;
+  padding-left: 35px;
   color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
 
@@ -82,25 +82,23 @@ export const SubmitBtn = styled.button`
   align-self: center;
   gap: 5px;
   width: 100%;
+  border: none;
+  border-radius: 30px;
   padding: 10px;
   margin-top: 21px;
   color: ${({ theme }) => theme.colors.black};
   background-color: ${({ theme }) => theme.colors.white};
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  border-radius: 30px;
   cursor: pointer;
   transition: ${({ theme }) =>
-    `color ${theme.transitions.linear},background-color ${theme.transitions.linear}, outline ${theme.transitions.linear}, filter ${theme.transitions.linear}`};
+    `color ${theme.transitions.linear},background-color ${theme.transitions.linear}, outline ${theme.transitions.linear}, box-shadow ${theme.transitions.linear}`};
 
   &:hover,
   &:focus {
-    outline: ${({ theme }) => `1px solid ${theme.colors.white}`};
     border-radius: 30px;
+    outline: ${({ theme }) => `1px solid ${theme.colors.white}`};
     color: ${({ theme }) => theme.colors.white};
     background-color: transparent;
-    filter: drop-shadow(1px 1px 1px #eefeaf);
+    box-shadow: ${({ theme }) => theme.shadows.box};
   }
 
   @media screen and (min-width: 768px) {

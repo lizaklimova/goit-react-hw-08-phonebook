@@ -7,10 +7,9 @@ export const ContactsUl = styled.ul`
   justify-content: center;
   gap: 15px;
   width: 100%;
-
-  padding: 15px;
   border-radius: 30px;
-  margin: 50px auto 50px auto;
+  padding: 15px;
+  margin: 30px auto 50px auto;
   background-color: ${({ theme }) => theme.colors.opacityBlue};
   backdrop-filter: blur(15px);
   box-shadow: rgba(241, 240, 240, 0.24) 0px 3px 8px;

@@ -73,13 +73,14 @@ export const NotFoundP = styled.p`
     font-size: 50px;
   }
 `;
+
 export const NotFoundBtn = styled.button`
   font-size: 20px;
   display: flex;
   align-items: center;
   gap: 5px;
-  color: ${({ theme }) => theme.colors.white};
   margin-top: 20px;
+  color: ${({ theme }) => theme.colors.white};
 
   svg {
     transition: ${({ theme }) => `transform ${theme.transitions.linear}`};

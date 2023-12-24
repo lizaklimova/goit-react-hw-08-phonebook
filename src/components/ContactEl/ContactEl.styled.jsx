@@ -8,8 +8,8 @@ export const ContactLi = styled.li`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 15px;
   border-radius: 15px;
+  padding: 15px;
   border-bottom: ${({ theme }) => `3px solid ${theme.colors.white}`};
   background-color: ${({ theme }) => theme.colors.whiteOpacity};
 
@@ -19,18 +19,16 @@ export const ContactLi = styled.li`
 `;
 
 export const ContactUser = styled(LuUserCircle2)`
-  stroke: ${({ theme }) => theme.colors.white};
-  fill: transparent;
   width: 20px;
   height: 20px;
+  stroke: ${({ theme }) => theme.colors.white};
+  fill: transparent;
 
   @media screen and (min-width: 768px) {
     width: 30px;
     height: 30px;
   }
 `;
-
-export const ContactWrapper = styled.div``;
 
 export const ContactInfoBlock = styled.div`
   display: flex;
@@ -58,9 +56,9 @@ export const ContactInfoTel = styled.p`
 `;
 
 export const EditIcon = styled(FaRegEdit)`
-  stroke: ${({ theme }) => theme.colors.white};
   width: 15px;
   height: 15px;
+  stroke: ${({ theme }) => theme.colors.white};
 
   @media screen and (min-width: 768px) {
     width: 20px;

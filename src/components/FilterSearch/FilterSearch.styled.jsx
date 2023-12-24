@@ -21,22 +21,22 @@ export const SearchIcon = styled(IoSearchOutline)`
 `;
 
 export const SearchInput = styled.input`
-  padding: 10px 12px 10px 35px;
+  width: 100%;
+  border: none;
   border-radius: 15px;
+  padding: 12px 12px 12px 35px;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.accentBlue};
-  border: none;
-  width: 100%;
 
   &:focus {
     outline: none;
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.white};
-    opacity: 0.7;
     font-size: ${({ theme }) => theme.fontSizes.small};
     line-height: 1;
     letter-spacing: -0.408px;
+    color: ${({ theme }) => theme.colors.white};
+    opacity: 0.7;
   }
 `;

@@ -51,19 +51,24 @@ const RegisterForm = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            fontFamily: "Josefin Sans",
           }}
         >
           <Avatar
             sx={{ m: 1, bgcolor: "primary.main", color: "secondary.main" }}
           ></Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{ fontFamily: "Josefin Sans" }}
+          >
             Sign up
           </Typography>
           <Box
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, fontFamily: "Josefin Sans" }}
           >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -76,6 +81,14 @@ const RegisterForm = () => {
                   label="First Name"
                   color="secondary"
                   autoFocus
+                  sx={{
+                    "& label": {
+                      fontFamily: "Josefin Sans",
+                    },
+                    "*": {
+                      fontFamily: "Josefin Sans",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -87,6 +100,14 @@ const RegisterForm = () => {
                   name="lastName"
                   autoComplete="family-name"
                   color="secondary"
+                  sx={{
+                    "& label": {
+                      fontFamily: "Josefin Sans",
+                    },
+                    "*": {
+                      fontFamily: "Josefin Sans",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -98,6 +119,14 @@ const RegisterForm = () => {
                   name="email"
                   autoComplete="email"
                   color="secondary"
+                  sx={{
+                    "& label": {
+                      fontFamily: "Josefin Sans",
+                    },
+                    "*": {
+                      fontFamily: "Josefin Sans",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -110,6 +139,14 @@ const RegisterForm = () => {
                   id="password"
                   autoComplete="new-password"
                   color="secondary"
+                  sx={{
+                    "& label": {
+                      fontFamily: "Josefin Sans",
+                    },
+                    "*": {
+                      fontFamily: "Josefin Sans",
+                    },
+                  }}
                 />
               </Grid>
             </Grid>
@@ -117,7 +154,7 @@ const RegisterForm = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, fontFamily: "Josefin Sans" }}
             >
               Sign Up
             </Button>

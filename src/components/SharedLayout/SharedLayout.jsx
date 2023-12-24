@@ -1,5 +1,6 @@
 import { Suspense, useState } from "react";
 import { Outlet } from "react-router-dom";
+import Loader from "components/Loader";
 import { MainContainer } from "components/App/App.styled";
 import Navigation from "components/Navigation";
 import MobMenu from "components/MobMenu";
@@ -26,7 +27,7 @@ const SharedLayout = () => {
           <Navigation openMenu={openMenu} />
         </MainContainer>
       </Header>
-      <Suspense fallback={<div>Loading</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>

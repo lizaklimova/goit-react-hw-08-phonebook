@@ -29,7 +29,11 @@ const contactsSlice = createSlice({
     error: null,
   },
 
-  reducers: {},
+  reducers: {
+    sortContacts(state, { payload }) {
+      state.items = payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -67,3 +71,4 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
+export const { sortContacts } = contactsSlice.actions;

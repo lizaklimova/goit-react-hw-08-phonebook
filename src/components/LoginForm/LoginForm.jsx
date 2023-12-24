@@ -47,15 +47,24 @@ const LoginForm = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            fontFamily: "Josefin Sans",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
             <IoLockClosedOutline color={defaultTheme.palette.secondary.light} />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{ fontFamily: "Josefin Sans" }}
+          >
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{ mt: 1, fontFamily: "Josefin Sans" }}
+          >
             <TextField
               margin="normal"
               required
@@ -67,8 +76,18 @@ const LoginForm = () => {
               color="secondary"
               autoFocus
               sx={{
+                fontFamily: "Josefin Sans",
+
                 "& :-webkit-autofill": {
                   boxShadow: `0 0 0px 1000px ${defaultTheme.palette.secondary.dark} inset`,
+                },
+
+                "& label": {
+                  fontFamily: "Josefin Sans",
+                },
+
+                "*": {
+                  fontFamily: "Josefin Sans",
                 },
               }}
             />
@@ -84,8 +103,18 @@ const LoginForm = () => {
               bgcolor="secondary"
               autoComplete="current-password"
               sx={{
+                fontFamily: "Josefin Sans",
+
                 "& :-webkit-autofill": {
                   boxShadow: `0 0 0px 1000px ${defaultTheme.palette.secondary.dark} inset`,
+                },
+
+                "& label": {
+                  fontFamily: "Josefin Sans",
+                },
+
+                "*": {
+                  fontFamily: "Josefin Sans",
                 },
               }}
             />
@@ -94,7 +123,7 @@ const LoginForm = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, fontFamily: "Josefin Sans" }}
             >
               Sign In
             </Button>

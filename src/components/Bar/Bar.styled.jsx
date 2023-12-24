@@ -5,13 +5,13 @@ export const BarDiv = styled.div`
   align-items: center;
   justify-content: center;
   gap: 30px;
-  background-color: ${({ theme }) => theme.colors.whiteOpacity};
+  width: 100%;
+  border-radius: 40px;
   padding: 30px;
   margin: auto;
   margin-top: 50px;
+  background-color: ${({ theme }) => theme.colors.whiteOpacity};
   backdrop-filter: blur(15px);
-  border-radius: 40px;
-  width: 100%;
 
   @media screen and (min-width: 768px) {
     width: 80%;
@@ -25,9 +25,9 @@ export const BarDiv = styled.div`
 export const AddContactBtn = styled.button`
   font-size: 12px;
   text-transform: uppercase;
-  background-color: ${({ theme }) => theme.colors.whiteOpacity};
-  padding: 5px;
   border-radius: 40px;
+  padding: 5px;
+  background-color: ${({ theme }) => theme.colors.whiteOpacity};
   transition: ${({ theme }) => theme.transitions.eased};
 
   &:hover,
@@ -37,6 +37,6 @@ export const AddContactBtn = styled.button`
 
   @media screen and (min-width: 768px) {
     font-size: ${({ theme }) => theme.fontSizes.small};
-    padding: 10px;
+    padding: 14px;
   }
 `;

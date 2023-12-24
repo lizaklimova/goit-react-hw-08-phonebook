@@ -8,8 +8,9 @@ export const theme = Object.freeze({
     black: "#000",
     blackOpacity: "rgba(0, 0, 0, 0.1)",
     backdropBlack: "rgba(0, 0, 0, 0.9)",
-    textGradient: "#a3a9c5",
+    textGradient: "#3043be",
     grey: "#838282",
+    filterBlue: "#4d44b6",
   },
 
   fontSizes: {
@@ -25,5 +26,6 @@ export const theme = Object.freeze({
 
   shadows: {
     drop: "drop-shadow(5px 1px 1px",
+    box: "rgba(97, 81, 178, 0.3) 0px 5px 30px, rgba(110, 110, 207, 0.22) 0px 10px 37px",
   },
 });

@@ -12,7 +12,7 @@ body {
   font-size: 16px;
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
-  background-color: ${({ theme }) => theme.colors.black} ;
+  background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
   background: url(${bgImg}) no-repeat center/cover fixed;
  overflow-x: hidden;

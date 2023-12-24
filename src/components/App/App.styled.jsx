@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
-  z-index: 5;
+
   @media screen and (min-width: 375px) {
     max-width: 365px;
   }
@@ -42,8 +42,8 @@ export const NavigLink = styled(NavLink)`
     bottom: -5px;
     width: 0;
     height: 2px;
-    background-color: ${({ theme }) => theme.colors.white};
     border-radius: 30px;
+    background-color: ${({ theme }) => theme.colors.white};
     opacity: 0;
     transition: ${({ theme }) =>
       `width ${theme.transitions.linear}, opacity ${theme.transitions.linear}`};
@@ -51,7 +51,6 @@ export const NavigLink = styled(NavLink)`
 
   &.active::after {
     width: 100%;
-
     opacity: 1;
   }
 

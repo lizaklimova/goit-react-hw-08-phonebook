@@ -2,16 +2,15 @@ import styled from "styled-components";
 import homeDecor from "images/home-element.png";
 
 export const HomeDiv = styled.div`
-  padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  background: url(${homeDecor}) no-repeat left 0 bottom 0 / cover;
   height: 100vh;
+  padding: 50px 0;
+  background: url(${homeDecor}) no-repeat left 0 bottom 0 / 100% 100%;
 
   @media screen and (min-width: 768px) {
-    background: url(${homeDecor}) no-repeat left 0 bottom 0 / cover;
     gap: 50px;
   }
 `;
@@ -21,8 +20,7 @@ export const HomeTitle = styled.h1`
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) =>
-    ` linear-gradient(90deg, ${theme.colors.textGradient} 0%, ${theme.colors.white} 100%)`};
-
+    ` linear-gradient(90deg, ${theme.colors.white} 0%, ${theme.colors.textGradient} 100%)`};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -38,9 +36,9 @@ export const HomeTitle = styled.h1`
 
 export const HomeText = styled.p`
   font-size: 20px;
+  margin-top: 15px;
   color: ${({ theme }) => theme.colors.white};
   opacity: 0.6;
-  margin-top: 15px;
 
   @media screen and (min-width: 768px) {
     font-size: 40px;

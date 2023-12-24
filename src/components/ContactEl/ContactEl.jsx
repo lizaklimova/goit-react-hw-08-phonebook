@@ -1,6 +1,5 @@
 import {
   ContactLi,
-  ContactWrapper,
   ContactUser,
   ContactInfoBlock,
   ContactEditBtn,
@@ -24,13 +23,12 @@ export default function ContactEl({
     <>
       <ContactLi>
         <ContactUser />
-        <ContactWrapper>
+        <div>
           <ContactInfoBlock>
-            <ContactInfoName>{name}</ContactInfoName>
-            {":"}
+            <ContactInfoName>{name} :</ContactInfoName>
             <ContactInfoTel>{number}</ContactInfoTel>
           </ContactInfoBlock>
-        </ContactWrapper>
+        </div>
         <div>
           <ContactEditBtn
             type="button"

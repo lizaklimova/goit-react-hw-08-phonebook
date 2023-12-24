@@ -4,17 +4,17 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
-  cursor: pointer;
   border: none;
   background-color: transparent;
+  cursor: pointer;
   transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
 
   &:hover {
+    filter: ${({ theme }) => `drop-shadow(-1px 1px 5px ${theme.colors.white})`};
     transform: scale(1.1);
-    filter: drop-shadow(-1px 1px 5px #eefeaf);
   }
 
   svg {
-    fill: #fff;
+    fill: ${({ theme }) => theme.colors.white};
   }
 `;
