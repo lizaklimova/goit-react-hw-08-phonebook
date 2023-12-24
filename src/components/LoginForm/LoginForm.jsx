@@ -63,9 +63,14 @@ const LoginForm = () => {
               id="email"
               label="Email Address"
               name="email"
-              autoComplete="off"
+              autoComplete="current-name"
               color="secondary"
               autoFocus
+              sx={{
+                "& :-webkit-autofill": {
+                  boxShadow: `0 0 0px 1000px ${defaultTheme.palette.secondary.dark} inset`,
+                },
+              }}
             />
             <TextField
               margin="normal"
@@ -77,7 +82,12 @@ const LoginForm = () => {
               id="password"
               color="secondary"
               bgcolor="secondary"
-              autoComplete="off"
+              autoComplete="current-password"
+              sx={{
+                "& :-webkit-autofill": {
+                  boxShadow: `0 0 0px 1000px ${defaultTheme.palette.secondary.dark} inset`,
+                },
+              }}
             />
 
             <Button

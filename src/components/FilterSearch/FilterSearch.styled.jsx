@@ -25,9 +25,8 @@ export const SearchInput = styled.input`
   border-radius: 15px;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.accentBlue};
-
   border: none;
-  width: 235px;
+  width: 100%;
 
   &:focus {
     outline: none;
@@ -39,9 +38,5 @@ export const SearchInput = styled.input`
     font-size: ${({ theme }) => theme.fontSizes.small};
     line-height: 1;
     letter-spacing: -0.408px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 335px;
   }
 `;

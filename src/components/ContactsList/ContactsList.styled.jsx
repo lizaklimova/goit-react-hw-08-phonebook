@@ -1,10 +1,23 @@
 import styled from "styled-components";
 
 export const ContactsUl = styled.ul`
-  padding-top: 200px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
   align-items: center;
   justify-content: center;
+  gap: 15px;
+  width: 100%;
+  min-height: 300px;
+  padding: 15px;
+  border-radius: 30px;
+  margin: 50px auto 50px auto;
+  background-color: ${({ theme }) => theme.colors.opacityBlue};
+  backdrop-filter: blur(15px);
+  box-shadow: rgba(241, 240, 240, 0.24) 0px 3px 8px;
+  overflow: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 550px;
+    padding: 50px;
+  }
 `;

@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineSearchOff } from "react-icons/md";
-import { fetchContacts } from "../redux/contacts/operations";
+import {
+  fetchContacts,
+  addContact,
+  editContact,
+} from "../redux/contacts/operations";
 import ContactsList from "components/ContactsList";
 import { selectContacts, selectIsLoading } from "../redux/contacts/selectors";
 import Loader from "components/Loader";
@@ -11,6 +15,8 @@ import { MainContainer, NoContactsMsg } from "components/App/App.styled";
 
 const Contacts = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAdding, setIsAdding] = useState(true);
+  const [id, setId] = useState(null);
 
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
@@ -31,14 +37,26 @@ const Contacts = () => {
 
   return (
     <>
-      {isModalOpen && <Modal closeModal={closeModal} isOpen={isModalOpen} />}
+      {isModalOpen && (
+        <Modal
+          closeModal={closeModal}
+          isOpen={isModalOpen}
+          action={isAdding ? addContact : editContact}
+          id={id}
+        />
+      )}
+
       <MainContainer>
-        <Bar openModal={openModal} />
+        <Bar openModal={openModal} setIsAdding={setIsAdding} />
 
         {isLoading ? (
           <Loader />
         ) : contacts && contacts.length > 0 ? (
-          <ContactsList />
+          <ContactsList
+            openModal={openModal}
+            setIsAdding={setIsAdding}
+            setId={setId}
+          />
         ) : (
           <NoContactsMsg>
             No contacts added yet <MdOutlineSearchOff size={30} />

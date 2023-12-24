@@ -4,14 +4,15 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { FaRegEdit } from "react-icons/fa";
 
 export const ContactLi = styled.li`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 15px;
   border-radius: 15px;
-  border-bottom: ${({ theme }) => `3px solid ${theme.colors.whiteOpacity}`};
-  backdrop-filter: blur(15px);
+  border-bottom: ${({ theme }) => `3px solid ${theme.colors.white}`};
+  background-color: ${({ theme }) => theme.colors.whiteOpacity};
+
   @media screen and (min-width: 768px) {
     width: 430px;
   }
@@ -20,8 +21,13 @@ export const ContactLi = styled.li`
 export const ContactUser = styled(LuUserCircle2)`
   stroke: ${({ theme }) => theme.colors.white};
   fill: transparent;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const ContactWrapper = styled.div``;
@@ -32,26 +38,64 @@ export const ContactInfoBlock = styled.div`
   gap: 15px;
 `;
 
-export const ContactInfoName = styled.p``;
+export const ContactInfoName = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+  color: ${({ theme }) => theme.colors.white};
 
-export const ContactInfoTel = styled.p``;
-
-export const EditIcon = styled(FaRegEdit)`
-  stroke: ${({ theme }) => theme.colors.white};
-  width: 20px;
-  height: 20px;
-`;
-
-export const ContactEditBtn = styled.button``;
-
-export const ContactDeleteBtn = styled.button`
-  &:hover {
+  @media screen and (min-width: 768px) {
+    font-size: ${({ theme }) => theme.fontSizes.large};
   }
 `;
 
-export const DeleteIcon = styled(RiDeleteBinLine)``;
+export const ContactInfoTel = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  color: ${({ theme }) => theme.colors.white};
+  opacity: 0.7;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${({ theme }) => theme.fontSizes.large};
+  }
+`;
+
+export const EditIcon = styled(FaRegEdit)`
+  stroke: ${({ theme }) => theme.colors.white};
+  width: 15px;
+  height: 15px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+`;
+
+export const ContactEditBtn = styled.button`
+  transition: ${({ theme }) => `transform ${theme.transitions.linear}`};
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const ContactDeleteBtn = styled.button`
+  transition: ${({ theme }) => `transform ${theme.transitions.linear}`};
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const DeleteIcon = styled(RiDeleteBinLine)`
+  width: 15px;
+  height: 15px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+`;
 
 export const NoContactsFoundMsg = styled.p`
   span {
+    text-decoration: underline;
   }
 `;

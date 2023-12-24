@@ -9,9 +9,18 @@ export const Nav = styled.nav`
 
 export const NavDiv = styled.div`
   display: flex;
+  flex-direction: ${({ $variant }) => ($variant ? "column" : "row")};
   gap: 15px;
 
   @media screen and (min-width: 768px) {
     gap: 35px;
+  }
+`;
+
+export const BurgerBtn = styled.div`
+  svg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
   }
 `;

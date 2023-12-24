@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const LoaderBackdrop = styled.div`
-  position: relative;
+  position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(142, 140, 140, 0.08);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: ${({ theme }) => theme.colors.whiteOpacity};
+  z-index: 5;
 `;

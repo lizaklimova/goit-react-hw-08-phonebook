@@ -71,5 +71,21 @@ svg {
 }
 
 
+  ::-webkit-scrollbar {
+    width: 10px; 
+  }
 
+
+  ::-webkit-scrollbar-thumb {
+    background-color:${({ theme }) => theme.colors.white};
+    opacity:1;
+    border-radius: 6px; 
+  }
+
+
+  ::-webkit-scrollbar-track {
+    background: #5f5d5d;
+     border-radius: 6px; 
+    
+  }
 `;

@@ -1,4 +1,6 @@
+import NotFoundPg from "components/NotFoundPg";
+
 const NotFound = () => {
-  return <div>Not found</div>;
+  return <NotFoundPg />;
 };
 export default NotFound;

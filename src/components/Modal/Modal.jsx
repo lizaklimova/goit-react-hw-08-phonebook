@@ -1,24 +1,29 @@
-import { IoMdClose } from "react-icons/io";
+import { createPortal } from "react-dom";
 import ContactsForm from "components/ContactsForm";
+import CloseBtn from "components/CloseBtn/CloseBtn";
 import { MainContainer } from "components/App/App.styled";
-import { ModalBackdrop, ModalWin, CloseModalBtn } from "./Modal.styled";
+import { ModalBackdrop, ModalWin } from "./Modal.styled";
 
-const Modal = ({ closeModal, isOpen }) => {
+const modalRoot = document.querySelector("#modal-root");
+
+const Modal = ({ closeModal, isOpen, action, id }) => {
   const handleBackdropClose = ({ target, currentTarget }) => {
     if (target === currentTarget) closeModal();
   };
 
-  return (
-    <ModalBackdrop className={isOpen ? "is-visible" : "is-hidden"}>
+  return createPortal(
+    <ModalBackdrop
+      className={isOpen ? "is-visible" : "is-hidden"}
+      onClick={handleBackdropClose}
+    >
       <MainContainer onClick={handleBackdropClose}>
         <ModalWin className={isOpen ? "is-visible" : "is-hidden"}>
-          <CloseModalBtn type="button" onClick={closeModal}>
-            <IoMdClose size={30} color={"black"} />
-          </CloseModalBtn>
-          <ContactsForm closeModal={closeModal} />
+          <CloseBtn closeFn={closeModal} />
+          <ContactsForm closeModal={closeModal} action={action} id={id} />
         </ModalWin>
       </MainContainer>
-    </ModalBackdrop>
+    </ModalBackdrop>,
+    modalRoot
   );
 };
 

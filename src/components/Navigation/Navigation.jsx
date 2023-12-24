@@ -1,10 +1,11 @@
+import { RxHamburgerMenu } from "react-icons/rx";
 import AuthNav from "components/AuthNav";
 import { useAuth } from "hooks";
 import UserMenu from "components/UserMenu";
 import { NavigLink } from "components/App/App.styled";
-import { Nav, NavDiv } from "./Navigation.styled";
+import { Nav, NavDiv, BurgerBtn } from "./Navigation.styled";
 
-const Navigation = () => {
+const Navigation = ({ openMenu }) => {
   const { isLoggedIn } = useAuth();
 
   return (
@@ -14,7 +15,15 @@ const Navigation = () => {
         {isLoggedIn && <NavigLink to="/contacts">Contacts</NavigLink>}
       </NavDiv>
 
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      {isLoggedIn && window.innerWidth < 767 ? (
+        <BurgerBtn type="button" onClick={() => openMenu(true)}>
+          <RxHamburgerMenu />
+        </BurgerBtn>
+      ) : isLoggedIn ? (
+        <UserMenu />
+      ) : (
+        <AuthNav />
+      )}
     </Nav>
   );
 };

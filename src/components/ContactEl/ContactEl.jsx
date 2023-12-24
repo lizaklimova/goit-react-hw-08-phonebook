@@ -17,30 +17,38 @@ import {
   NoContactsFoundMsg,
 } from "./ContactEl.styled";
 
-export default function ContactEl() {
+export default function ContactEl({ openModal, setIsAdding, setId }) {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilterSearch);
 
   const filteredContacts = contacts.filter(({ name }) => {
-    return name.toLowerCase().trim().includes(filter);
+    return name && name.toLowerCase().trim().includes(filter);
   });
 
   return (
     <>
       {filteredContacts.length > 0 ? (
-        filteredContacts.map(({ id, name, number }, i) => (
+        filteredContacts.map(({ id, name, number }) => (
           <ContactLi key={id}>
             <ContactUser />
             <ContactWrapper>
               <ContactInfoBlock>
                 <ContactInfoName>{name}</ContactInfoName>
+                {":"}
                 <ContactInfoTel>{number}</ContactInfoTel>
               </ContactInfoBlock>
             </ContactWrapper>
             <div>
-              <ContactEditBtn type="button">
+              <ContactEditBtn
+                type="button"
+                onClick={() => {
+                  openModal();
+                  setIsAdding(false);
+                  setId(id);
+                }}
+              >
                 <EditIcon />
               </ContactEditBtn>
 
@@ -55,7 +63,7 @@ export default function ContactEl() {
         ))
       ) : (
         <NoContactsFoundMsg>
-          No contacts found on filter<span>{filter}</span>
+          No contacts found on filter <span>{filter}</span>
         </NoContactsFoundMsg>
       )}
     </>

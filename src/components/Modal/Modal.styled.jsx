@@ -8,7 +8,10 @@ export const ModalBackdrop = styled.div`
   height: 100vh;
   background-color: rgba(50, 52, 50, 0.7);
   backdrop-filter: blur(15px);
-  z-index: 2;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* transition: all 350ms ease-in-out; */
 
   /* &.is-visible {
@@ -21,7 +24,10 @@ export const ModalBackdrop = styled.div`
 `;
 
 export const ModalWin = styled.div`
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgba(13, 13, 13, 0.8);
   padding: 45px;
   width: 100%;
@@ -29,7 +35,7 @@ export const ModalWin = styled.div`
   border: 1px solid #000000;
   box-shadow: rgba(50, 93, 69, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  z-index: 3;
+  z-index: 4;
 
   /* 
   &.is-visible {
@@ -40,24 +46,5 @@ export const ModalWin = styled.div`
   } */
   @media screen and (min-width: 428px) {
     max-width: 400px;
-  }
-`;
-
-export const CloseModalBtn = styled.button`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(-1px 1px 5px #eefeaf);
-  }
-
-  svg {
-    fill: #fff;
   }
 `;

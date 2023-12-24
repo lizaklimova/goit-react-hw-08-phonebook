@@ -6,6 +6,7 @@ export const defaultTheme = createTheme({
     mode: "dark",
     primary: {
       main: theme.colors.accentBlue,
+      light: theme.colors.opacityBlueStrong,
     },
     secondary: {
       main: theme.colors.white,

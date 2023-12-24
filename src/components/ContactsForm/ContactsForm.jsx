@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { info } from "notifications/notiflixInit";
-import { addContact } from "../../redux/contacts/operations";
+import { addContact, editContact } from "../../redux/contacts/operations";
 import { selectContacts } from "../../redux/contacts/selectors";
 import {
   ContactsFormEl,
@@ -12,7 +12,7 @@ import {
   SubmitBtn,
 } from "./ContactsForm.styled";
 
-export default function ContactsForm({ closeModal }) {
+export default function ContactsForm({ closeModal, action, id }) {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
@@ -33,18 +33,28 @@ export default function ContactsForm({ closeModal }) {
     e.preventDefault();
 
     const { name, number } = e.currentTarget.elements;
+    const body = { name: name.value, number: number.value };
 
     checkExistingContact(number.value)
       ? info(`Number ${number.value} already exists`)
-      : dispatch(addContact({ name: name.value, number: number.value }));
+      : dispatch(
+          action === addContact
+            ? addContact(body)
+            : editContact({
+                id,
+                body,
+              })
+        );
 
     closeModal();
     e.currentTarget.reset();
   };
 
   const checkExistingContact = (value) => {
-    return contacts.find((contact) => contact.phone === value);
+    return contacts.find((contact) => contact.number === value);
   };
+
+  const value = contacts.find((el) => el.id === id);
 
   return (
     <>
@@ -53,7 +63,7 @@ export default function ContactsForm({ closeModal }) {
           <ContactsNameInput
             type="text"
             name="name"
-            placeholder="Full Name"
+            placeholder={action === editContact ? value.name : "Full Name"}
             required
           />
           <PersonNameIcon />
@@ -63,7 +73,7 @@ export default function ContactsForm({ closeModal }) {
           <ContactsNumberInput
             type="tel"
             name="number"
-            placeholder="123-456-78"
+            placeholder={action === editContact ? value.number : "123-456-78"}
             title="Please, enter valid format of number. Ex: (123-45-67)"
             required
           />
