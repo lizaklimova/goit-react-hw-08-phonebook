@@ -9,6 +9,7 @@ export const PersonNameIcon = styled(IoPerson)`
   width: 20px;
   height: 20px;
 `;
+
 export const PersonTelIcon = styled(FaPhoneAlt)`
   position: absolute;
   left: 0;
@@ -18,17 +19,13 @@ export const PersonTelIcon = styled(FaPhoneAlt)`
 `;
 
 export const ContactsFormEl = styled.form`
+  letter-spacing: 0.08px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   gap: 25px;
-  letter-spacing: 0.08px;
   width: 100%;
-  color: #fff;
-
-  @media screen and (min-width: 768px) {
-    width: 100%;
-  }
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const ContactsNameInput = styled.input`
@@ -37,14 +34,15 @@ export const ContactsNameInput = styled.input`
   padding: 10px;
   padding-left: 35px;
   border: none;
-  color: #fff;
-  border-bottom: 2px solid #fff;
+  color: ${({ theme }) => theme.colors.white};
+  border-bottom: ${({ theme }) => `2px solid ${theme.colors.white}`};
   background-color: transparent;
   border-radius: 0;
 
   &::placeholder {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.372);
+    color: ${({ theme }) => theme.colors.white};
+    opacity: 0.4;
   }
 
   &:focus {
@@ -53,19 +51,20 @@ export const ContactsNameInput = styled.input`
 `;
 
 export const ContactsNumberInput = styled.input`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.fontSizes.large};
   width: 100%;
   padding: 10px;
   padding-left: 35px;
   border: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: ${({ theme }) => `2px solid ${theme.colors.white}`};
   border-radius: 0;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
 
   &::placeholder {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.372);
+    color: ${({ theme }) => theme.colors.white};
+    opacity: 0.4;
   }
 
   &:focus {
@@ -74,34 +73,37 @@ export const ContactsNumberInput = styled.input`
 `;
 
 export const SubmitBtn = styled.button`
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: center;
   gap: 5px;
-  font-weight: 700;
-  font-size: 16px;
-  width: 55%;
+  width: 100%;
   padding: 10px;
   margin-top: 21px;
-  color: #000;
-  background-color: #fff;
+  color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.white};
   border: none;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-
-  letter-spacing: 0.8px;
   border-radius: 30px;
   cursor: pointer;
-  transition: color 300ms linear, background-color 300ms linear,
-    outline 300ms linear, filter 300ms linear;
+  transition: ${({ theme }) =>
+    `color ${theme.transitions.linear},background-color ${theme.transitions.linear}, outline ${theme.transitions.linear}, filter ${theme.transitions.linear}`};
 
   &:hover,
   &:focus {
-    outline: 1px solid #fff;
+    outline: ${({ theme }) => `1px solid ${theme.colors.white}`};
     border-radius: 30px;
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
     background-color: transparent;
     filter: drop-shadow(1px 1px 1px #eefeaf);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 60%;
   }
 `;

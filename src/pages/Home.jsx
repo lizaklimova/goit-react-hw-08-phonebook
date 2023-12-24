@@ -1,5 +1,7 @@
+import HomeBlock from "components/HomeBlock";
+
 const Home = () => {
-  return <div>Home</div>;
+  return <HomeBlock />;
 };
 
 export default Home;

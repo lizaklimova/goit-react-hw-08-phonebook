@@ -11,9 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 body {
   font-size: 16px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background-color: ${({ theme }) => theme.colors.black} ;
   color: ${({ theme }) => theme.colors.white};
   background: url(${bgImg}) no-repeat center/cover fixed;

@@ -39,7 +39,7 @@ export const ContactInfoBlock = styled.div`
 `;
 
 export const ContactInfoName = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.medium};
+  font-size: ${({ theme }) => theme.fontSizes.small};
   color: ${({ theme }) => theme.colors.white};
 
   @media screen and (min-width: 768px) {

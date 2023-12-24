@@ -7,7 +7,7 @@ export const ContactsUl = styled.ul`
   justify-content: center;
   gap: 15px;
   width: 100%;
-  min-height: 300px;
+
   padding: 15px;
   border-radius: 30px;
   margin: 50px auto 50px auto;

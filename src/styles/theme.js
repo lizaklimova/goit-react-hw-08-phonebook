@@ -7,7 +7,9 @@ export const theme = Object.freeze({
     whiteOpacity: "rgba(255, 255, 255, 0.1)",
     black: "#000",
     blackOpacity: "rgba(0, 0, 0, 0.1)",
-    backdropBlack: "rgba(0, 0, 0, 0.7)",
+    backdropBlack: "rgba(0, 0, 0, 0.9)",
+    textGradient: "#a3a9c5",
+    grey: "#838282",
   },
 
   fontSizes: {
