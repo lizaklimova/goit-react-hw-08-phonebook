@@ -8,8 +8,8 @@ import { refresh } from "../../redux/auth/operations";
 import { RestrictedRoute } from "components/RestrictedRoute";
 import { PrivateRoute } from "components/PrivateRoute";
 
-const HomePage = lazy(() => import("../../pages/Home"));
-const RegisterPage = lazy(() => import("../../pages/Register"));
+const HomePage = lazy(() => import("pages/Home"));
+const RegisterPage = lazy(() => import("pages/Register"));
 const LoginPage = lazy(() => import("pages/Login"));
 const ContactsPage = lazy(() => import("pages/Contacts"));
 const NotFoundPage = lazy(() => import("pages/NotFound"));
