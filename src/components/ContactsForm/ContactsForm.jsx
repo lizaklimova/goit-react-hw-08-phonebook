@@ -2,7 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { info } from "notifications/notiflixInit";
 import { addContact, editContact } from "../../redux/contacts/operations";
-import { selectContacts } from "../../redux/contacts/selectors";
+import {
+  selectContacts,
+  selectCurrentId,
+} from "../../redux/contacts/selectors";
 import {
   ContactsFormEl,
   ContactsNameInput,
@@ -12,10 +15,11 @@ import {
   SubmitBtn,
 } from "./ContactsForm.styled";
 
-export default function ContactsForm({ closeModal, action, id }) {
+export default function ContactsForm({ closeModal, action }) {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
+  const curId = useSelector(selectCurrentId);
 
   useEffect(() => {
     const onEscClose = (e) => {
@@ -35,16 +39,18 @@ export default function ContactsForm({ closeModal, action, id }) {
     const { name, number } = e.currentTarget.elements;
     const body = { name: name.value, number: number.value };
 
-    checkExistingContact(number.value)
-      ? info(`Number ${number.value} already exists`)
-      : dispatch(
-          action === addContact
-            ? addContact(body)
-            : editContact({
-                id,
-                body,
-              })
-        );
+    if (action !== editContact) {
+      checkExistingContact(number.value)
+        ? info(`Number ${number.value} already exists`)
+        : dispatch(addContact(body));
+    } else {
+      dispatch(
+        editContact({
+          id: curId,
+          body,
+        })
+      );
+    }
 
     closeModal();
     e.currentTarget.reset();
@@ -54,7 +60,7 @@ export default function ContactsForm({ closeModal, action, id }) {
     return contacts.find((contact) => contact.number === value);
   };
 
-  const value = contacts.find((el) => el.id === id);
+  const value = contacts.find((el) => el.id === curId);
 
   return (
     <>
@@ -63,7 +69,8 @@ export default function ContactsForm({ closeModal, action, id }) {
           <ContactsNameInput
             type="text"
             name="name"
-            placeholder={action === editContact ? value.name : "Full Name"}
+            placeholder={action === addContact ? "Full Name" : ""}
+            defaultValue={action === editContact ? value.name : ""}
             required
           />
           <PersonNameIcon />
@@ -73,7 +80,8 @@ export default function ContactsForm({ closeModal, action, id }) {
           <ContactsNumberInput
             type="tel"
             name="number"
-            placeholder={action === editContact ? value.number : "123-456-78"}
+            placeholder={action === addContact ? "123-456-78" : ""}
+            defaultValue={action === editContact ? value.number : ""}
             title="Please, enter valid format of number. Ex: (123-45-67)"
             required
           />

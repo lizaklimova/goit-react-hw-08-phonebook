@@ -25,6 +25,7 @@ const contactsSlice = createSlice({
   name: "data",
   initialState: {
     items: [],
+    currentId: null,
     isLoading: false,
     error: null,
   },
@@ -32,6 +33,9 @@ const contactsSlice = createSlice({
   reducers: {
     sortContacts(state, { payload }) {
       state.items = payload;
+    },
+    setCurrentId(state, { payload }) {
+      state.currentId = payload;
     },
   },
 
@@ -71,4 +75,4 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
-export const { sortContacts } = contactsSlice.actions;
+export const { sortContacts, setCurrentId } = contactsSlice.actions;

@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { setCurrentId } from "../../redux/contacts/slice";
 import {
   ContactLi,
   ContactUser,
@@ -16,9 +18,10 @@ export default function ContactEl({
   number,
   openModal,
   setIsAdding,
-  setId,
   deleteContact,
 }) {
+  const dispatch = useDispatch();
+
   return (
     <>
       <ContactLi>
@@ -35,7 +38,7 @@ export default function ContactEl({
             onClick={() => {
               openModal();
               setIsAdding(false);
-              setId(id);
+              dispatch(setCurrentId(id));
             }}
           >
             <EditIcon />

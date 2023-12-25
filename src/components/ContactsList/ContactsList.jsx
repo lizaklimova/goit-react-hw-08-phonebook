@@ -8,7 +8,7 @@ import SortButton from "components/SortButton";
 import { ContactsUl } from "./ContactsList.styled";
 import { NoContactsFoundMsg } from "components/ContactEl/ContactEl.styled";
 
-export default function ContactsList({ openModal, setIsAdding, setId }) {
+export default function ContactsList({ openModal, setIsAdding }) {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
@@ -53,7 +53,6 @@ export default function ContactsList({ openModal, setIsAdding, setId }) {
               number={number}
               openModal={openModal}
               setIsAdding={setIsAdding}
-              setId={setId}
               deleteContact={handleDeleteContact}
             />
           ))

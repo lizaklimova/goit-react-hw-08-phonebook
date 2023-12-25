@@ -6,7 +6,7 @@ import { ModalBackdrop, ModalWin } from "./Modal.styled";
 
 const modalRoot = document.querySelector("#modal-root");
 
-const Modal = ({ closeModal, isOpen, action, id }) => {
+const Modal = ({ closeModal, isOpen, action }) => {
   const handleBackdropClose = ({ target, currentTarget }) => {
     if (target === currentTarget) closeModal();
   };
@@ -19,7 +19,7 @@ const Modal = ({ closeModal, isOpen, action, id }) => {
       <MainContainer onClick={handleBackdropClose}>
         <ModalWin className={isOpen ? "is-visible" : "is-hidden"}>
           <CloseBtn closeFn={closeModal} />
-          <ContactsForm closeModal={closeModal} action={action} id={id} />
+          <ContactsForm closeModal={closeModal} action={action} />
         </ModalWin>
       </MainContainer>
     </ModalBackdrop>,

@@ -16,7 +16,6 @@ import { MainContainer, NoContactsMsg } from "components/App/App.styled";
 const Contacts = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAdding, setIsAdding] = useState(true);
-  const [id, setId] = useState(null);
 
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
@@ -42,7 +41,6 @@ const Contacts = () => {
           closeModal={closeModal}
           isOpen={isModalOpen}
           action={isAdding ? addContact : editContact}
-          id={id}
         />
       )}
 
@@ -52,11 +50,7 @@ const Contacts = () => {
         {isLoading ? (
           <Loader />
         ) : contacts && contacts.length > 0 ? (
-          <ContactsList
-            openModal={openModal}
-            setIsAdding={setIsAdding}
-            setId={setId}
-          />
+          <ContactsList openModal={openModal} setIsAdding={setIsAdding} />
         ) : (
           <NoContactsMsg>
             No contacts added yet <MdOutlineSearchOff size={30} />
